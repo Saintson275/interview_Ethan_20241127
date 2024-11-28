@@ -90,11 +90,9 @@ The project structure is organized as follows:
 - [Vercel](https://vercel.com) (Hosting database)
 
 ## Players management
-1. Player management:
 
-   -**Get: List all players and return a list in JSON format, including each player's ID, name, level and other information**:
-   **RequestUrl**：
-   http://localhost:8080/api/players
+1. **Clone the repository**:
+   RequestUrl:http://localhost:8080/api/players
    ```json
    *response:
    [
@@ -104,10 +102,9 @@ The project structure is organized as follows:
        "level": "等级一"
      }
    ]
-
-   -Post: Register a new player and receive a request in JSON format, including the player's name and level. Returns the new player's ID:
-   RequestUrl:
-   http://localhost:8080/api/players
+   
+2. **Post: Register a new player and receive a request in JSON format, including the player's name and level. Returns the new player's ID:**:
+   RequestUrl:http://localhost:8080/api/players
    ```json
    *requestBody:
    {
@@ -123,26 +120,8 @@ The project structure is organized as follows:
        "level": "等级一"
      }
    ]
+   
+3. **Start the development server with Terminal:**:
 
-2. API Integration:
-   - Axios Configuration: Utilized Axios as the HTTP client for making requests to the public API (https://jsonplaceholder.typicode.com).
-   - Redux Toolkit: Implemented Redux Toolkit for managing application state, especially using the createApi function from @reduxjs/toolkit/query to handle API          endpoints (getPosts for fetching posts, addPost for adding a new post).
-  
-3. Components and UI Development:
-   - PostList Component: Created a component (PostList.tsx) to fetch and display a list of posts. Used Redux Toolkit's useGetPostsQuery hook to fetch posts and          displayed them in a responsive grid layout using Tailwind CSS.
-   - AddPostForm Component: Implemented a form (AddPost.tsx) to add new posts. Used Redux Toolkit's useAddPostMutation hook to handle form submission, including         form state management with React's useState hooks and displaying success/error messages using an AlertDialog component.
-
-4. Routing and Navigation:
-   - React Router: Configured routes in App.tsx using react-router-dom to navigate between the home page (/) displaying the list of posts and the create post page       (/create-post) showing the form for adding new posts.
-
-5. Error Handling and UX Improvements:
-   - Error Handling: Implemented basic error handling for API requests and form submissions, displaying appropriate error messages to the user.
-   - UX/UI Design: Designed a clean and responsive UI using Tailwind CSS utility classes for styling components such as cards, buttons, forms, and dialogs.
-
-This approach focused on leveraging Redux Toolkit for efficient state management, Axios for API communication, and React for building reusable components with TypeScript for type safety and improved code maintainability. Adjustments and enhancements can be made based on specific project requirements and real-world scenarios.
-
-## Results
-1. The web application has successfully fetched a list of posts from the given API endpoint and displayed them in a list of cards.
-2. Since we cannot actually change the data through the provided API, we can only verify whether a post has been successfully added by observing the status code and response data in the console. As shown in the following：
-![Project Logo](public/successful.png)
-![Project Logo](public/failed.png)
+   ```bash
+   go run main.go

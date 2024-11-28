@@ -83,13 +83,13 @@ Integrated with GORM as the Object-Relational Mapper (ORM) for seamless interact
 
 3. Payment Functionality
 Implements support for multiple payment methods with simulated logic, including:
-   - **Credit Card Payments**
+- **Credit Card Payments**
     - Validation for card number, expiry date, and CVV, with simulated transaction failure.
-   - **Bank Transfers**
+- **Bank Transfers**
     - Validation for account and bank details, supporting simulated transaction failure.
-   - **Third-Party Payment Platforms**
+- **Third-Party Payment Platforms**
     - Extensible to integrate third-party payment APIs with mock transaction logic.
-   - **Blockchain Payments**
+- **Blockchain Payments**
     - Verification of wallet addresses with low-probability failure simulation.
 
 4. Modular Design and Routing

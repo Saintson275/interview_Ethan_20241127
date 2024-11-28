@@ -6,7 +6,7 @@ This project is a backend management system for the OXO series of games built wi
 - Game Log Module
 - Payment Processing Module
 
-## Table of Contents
+## Contents
 
 - [Installation](#installation)
 - [Usage](#usage)

@@ -89,10 +89,10 @@ The project structure is organized as follows:
 - [Postman](https://www.postman.com)
 - [Vercel](https://vercel.com) (Hosting database)
 
-## Approach Taken
+## Players management
 1. Player management:
 
-   ### Get: List all players and return a list in JSON format, including each player's ID, name, level and other information:
+### Get: List all players and return a list in JSON format, including each player's ID, name, level and other information:
    RequestUrl：
    http://localhost:8080/api/players
    ```json
@@ -105,7 +105,7 @@ The project structure is organized as follows:
      }
    ]
 
-   ### Post: Register a new player and receive a request in JSON format, including the player's name and level. Returns the new player's ID:
+### Post: Register a new player and receive a request in JSON format, including the player's name and level. Returns the new player's ID:
    RequestUrl:
    http://localhost:8080/api/players
    ```json

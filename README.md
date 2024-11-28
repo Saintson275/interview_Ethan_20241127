@@ -108,17 +108,21 @@ The project structure is organized as follows:
    http://localhost:8080/api/players
 
    *requestBody:
+   ```json
    {
-    name,
-    level
+     "name": "string",  
+     "level": "string"
    }
 
    *response:
-   {
-    id,
-    name,
-    level
-   }
+   ```json
+   [
+     {
+       "id": 1,
+       "name": "Samuel",
+       "level": "等级一"
+     }
+   ]
 
 2. API Integration:
    - Axios Configuration: Utilized Axios as the HTTP client for making requests to the public API (https://jsonplaceholder.typicode.com).

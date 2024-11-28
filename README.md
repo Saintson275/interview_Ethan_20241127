@@ -30,7 +30,7 @@ To run this project locally, follow these steps:
    ```bash
    docker-compose up -d
    
-3. **Start the development server with Terminal::**:
+3. **Start the development server with Terminal:**:
 
    ```bash
    go run main.go

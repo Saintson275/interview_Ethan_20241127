@@ -28,12 +28,12 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/Saintson275/interview_Ethan_20241127.git
    
-2. **Start the development server with docker::**:
+2. **Start the development server with docker**:
 
    ```bash
    docker-compose up -d
    
-3. **Start the development server with Terminal:**:
+3. **Start the development server with Terminal**:
 
    ```bash
    go run main.go

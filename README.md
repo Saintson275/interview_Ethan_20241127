@@ -107,15 +107,15 @@ The project structure is organized as follows:
    *requestUrl:
    http://localhost:8080/api/players
 
-   *requestBody:
+   *API Examples:
    ```json
+   *requestBody:
    {
      "name": "string",  
      "level": "string"
    }
 
    *response:
-   ```json
    [
      {
        "id": 1,

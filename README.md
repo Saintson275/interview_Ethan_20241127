@@ -14,7 +14,10 @@ This project is a backend management system for the OXO series of games built wi
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Players Management Endpoint](#players-management-endpoint)
-- [Results](#results)
+- [Rooms Management Endpoint](#rooms-management-endpoint)
+- [Endless Challenge Endpoint](#endless-challenge-endpoint)
+- [Game Log Endpoint](#game-log-endpoint)
+- [Payment Processing Endpoint](#payment-processing-endpoint)
 
 ## Installation
 
@@ -176,7 +179,7 @@ The project structure is organized as follows:
      },
    ]
 
-## Rooms management endpoint
+## Rooms Management endpoint
 
 1. **[Get] Fetch all rooms (requestUrl:http://localhost:8080/api/rooms)**:
    ```json
@@ -285,7 +288,7 @@ The project structure is organized as follows:
      }
    ]
 
-## Endless Challenge endpoint
+## Endless Challenge Endpoint
 
 1. **[Get] Fetch all results (requestUrl:http://localhost:8080/api/challenges)**:
    ```json
@@ -304,7 +307,7 @@ The project structure is organized as follows:
    ```json
    *requestBody:
    {
-     "player_id": int
+     "player_id": "int"
    }
 
    *response:
@@ -316,7 +319,7 @@ The project structure is organized as follows:
      }
    ]
 
-## Game Log endpoint
+## Game Log Endpoint
 
 1. **[Get] Fetch all logs by 'action'/'startTime'/'endTime' (requestUrl:http://localhost:8080/api/logs?action=&start_time=&end_time=)**:
    ```json
@@ -352,7 +355,7 @@ The project structure is organized as follows:
      }
    ]
 
-## Payment Processing endpoint
+## Payment Processing Endpoint
 
 1. **[Get] Fetch all payments by id (requestUrl:http://localhost:8080/api/payments/{id})**:
    ```json

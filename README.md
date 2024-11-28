@@ -13,7 +13,7 @@ This project is a backend management system for the OXO series of games built wi
 - [Folder Structure](#folder-structure)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Approach Taken](#approach-taken)
+- [Players Management Endpoint](#players-management-endpoint)
 - [Results](#results)
 
 ## Installation
@@ -89,7 +89,7 @@ The project structure is organized as follows:
 - [Postman](https://www.postman.com)
 - [Vercel](https://vercel.com) (Hosting database)
 
-## Players management endpoint
+## Players Management Endpoint
 
 1. **[Get] Fetch all players (requestUrl:http://localhost:8080/api/players)**:
    ```json
@@ -238,7 +238,7 @@ The project structure is organized as follows:
 5. **[Delete] Delete room by ID (RequestUrl:http://localhost:8080/api/room/{id})**:
    ```json
    *response:
-   {message: delete room successful}
+   {"message: delete room successful"}
    
 6. **[Get] Fetch all reservations (requestUrl:http://localhost:8080/api/reservations?room_id=&date=&limit=)**:
    ```json
@@ -263,10 +263,10 @@ The project structure is organized as follows:
    ```json
    *requestBody:
    {
-     "player_id": int,
-     "room_id": int,
-     "date": string,
-     "time": string
+     "player_id": "int",
+     "room_id": "int",
+     "date": "string",
+     "time": "string"
    }
 
    *response:
@@ -283,4 +283,158 @@ The project structure is organized as follows:
             "level": "等级一"
          },
      }
+   ]
+
+## Endless Challenge endpoint
+
+1. **[Get] Fetch all results (requestUrl:http://localhost:8080/api/challenges)**:
+   ```json
+   *response:
+   [
+     {
+       "id": 1,
+       "name": "TestingRoom",
+       "description": "Aroom",
+       "status": "available"
+     },
+      ...
+   ]
+
+2. **[Post] Join the challenge with fixed amount of $20.01 (RequestUrl:http://localhost:8080/api/challenges)**:
+   ```json
+   *requestBody:
+   {
+     "player_id": int
+   }
+
+   *response:
+   [
+     {
+       "challenge_id": 3,
+       "status": false,
+       "win_amount": 0
+     }
+   ]
+
+## Game Log endpoint
+
+1. **[Get] Fetch all logs by 'action'/'startTime'/'endTime' (requestUrl:http://localhost:8080/api/logs?action=&start_time=&end_time=)**:
+   ```json
+   *response:
+   [
+     {
+        "id": 1,
+        "player_id": 1,
+        "action": "login",
+        "timestamp": "2024-11-27T19:51:30.543507Z",
+        "details": "Player Samuel login"
+     },
+      ...
+   ]
+
+2. **[Post] Create a log (RequestUrl:http://localhost:8080/api/logs)**:
+   ```json
+   *requestBody:
+   {
+     "player_id": "int",
+     "action": "string",
+     "details": "string"
+   }
+
+   *response:
+   [
+     {
+       "id": 2,
+       "player_id": 1,
+       "action": "logout",
+       "timestamp": "2024-11-28T14:45:11.052136Z",
+       "details": "Player Samuel logout"
+     }
+   ]
+
+## Payment Processing endpoint
+
+1. **[Get] Fetch all payments by id (requestUrl:http://localhost:8080/api/payments/{id})**:
+   ```json
+   *response:
+   [
+     {
+       "id": 3,
+       "player_id": 1,
+       "method": "credit_card",
+       "amount": 100.5,
+       "details": {
+           "card_number": "4111111111111111",
+           "expiry_date": "12/25",
+           "cvv": "123"
+        },
+       "transaction_id": "CC-6478508272011940677",
+       "status": "success",
+       "created_at": "2024-11-28T14:53:07.6153091Z"
+    }
+   ]
+
+2. **[Post] Create a payment (RequestUrl:http://localhost:8080/api/payments)**:
+   ```json
+   *requestBody(credit card):
+   {
+    "player_id":int,
+    "method": "string",
+    "amount": float64,
+    "details": {
+        "card_number": "string",
+        "expiry_date": "string",
+        "cvv": "string"
+     }
+   }
+
+   *requestBody(bank transfer):
+   {
+    "player_id":int,
+    "method": "string",
+    "amount": float64,
+    "details": {
+        "account_number": "string",
+        "bank_name": "string"
+     }
+   }
+
+   *requestBody(third party platform):
+   {
+    "player_id":int,
+    "method": "string",
+    "amount": float64,
+    "details": {
+        "platform": "string",
+        "email": "string"
+     }
+   }
+
+   *requestBody(blockchain):
+   {
+    "player_id":int,
+    "method": "string",
+    "amount": float64,
+    "details": {
+        "wallet_address": "string",
+        "transaction_id": "string"
+     }
+   }
+
+   *response(e.g credit card):
+   [
+     {
+       "id": 3,
+       "player_id": 1,
+       "method": "credit_card",
+       "amount": 100.5,
+       "details": {
+           "card_number": "4111111111111111",
+           "expiry_date": "12/25",
+           "cvv": "123"
+        },
+       "transaction_id": "CC-6478508272011940677",
+       "status": "success",
+       "created_at": "2024-11-28T14:53:07.6153091Z"
+   }
    ]

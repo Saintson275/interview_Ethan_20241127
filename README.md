@@ -38,8 +38,6 @@ To run this project locally, follow these steps:
    ```bash
    go run main.go
    
-
-   
 ## Usage
 - Start the Docker service and use [Postman](https://www.postman.com) to test the API of each module.
 - Create Post: Navigate to /create-post and fill out the form to add a new post with a title and content.

@@ -75,12 +75,53 @@ The project structure is organized as follows:
     └── README.md               # Project README file
 
 ## Features
-- Redux Toolkit: State management with Redux Toolkit, including creating slices and defining API queries.
-- React Router: Navigation and routing between different components (HomePage, AddPostForm).
-- API Integration: Integration with a mock API (jsonplaceholder.typicode.com) to fetch and add posts.
-- Responsive Design: Uses Tailwind CSS for responsive and mobile-first design principles.
-- Error Handling: Basic error handling for API requests and form submissions.
-- Dialogs and Modals: Utilizes Shadcn Alert Dialog for displaying modal dialogs for success/error messages.
+1. Fiber Web Framework
+Built with the high-performance Fiber web framework, enabling the rapid development of a lightweight RESTful API with clean and intuitive code structure.
+
+2. Database Management (GORM)
+Integrated with GORM as the Object-Relational Mapper (ORM) for seamless interactions with a PostgreSQL database, supporting model definition, migrations, and complex queries.
+
+3. Payment Functionality
+Implements support for multiple payment methods with simulated logic, including:
+ - Credit Card Payments
+ - Validation for card number, expiry date, and CVV, with simulated transaction failure.
+ - Bank Transfers
+ - Validation for account and bank details, supporting simulated transaction failure.
+ - Third-Party Payment Platforms
+ - Extensible to integrate third-party payment APIs with mock transaction logic.
+ - Blockchain Payments
+ - Verification of wallet addresses with low-probability failure simulation.
+
+4. Modular Design and Routing
+A modular architecture utilising Fiber’s routing system, divided into distinct modules (e.g., Players, Levels, Rooms, Payments), ensuring maintainability and ease of expansion.
+
+5. Data Modelling and Migrations
+Supports automated database table generation and model migration using GORM, covering key entities such as:
+ - Player Management
+ - Level Management
+ - Room Management
+ - Reservation Management
+ - Challenge Management
+ - Payment Management
+
+6. Unit and Integration Testing
+Unit Tests
+Comprehensive tests for the payment module, ensuring edge case handling and robust error management.
+Integration Tests
+End-to-end tests for the payment API, verifying request handling, database interaction, and response accuracy.
+
+7. Dockerised Deployment
+Provides Docker and Docker Compose support for streamlined local development and production deployment, including:
+ - Configuration of a PostgreSQL database container.
+ - Automated service orchestration.
+
+8. Error Handling and Logging
+ - Global Error Middleware
+ - Handles application-wide errors, returning user-friendly JSON responses.
+ - Logging all requests and database operations to facilitate debugging and monitoring.
+
+9. Environment Variable Management
+Employs dotenv for environment variable handling, enabling secure and centralised management of configuration details, including database credentials and server settings.
 
 ## Technologies Used
 - [Go](https://go.dev)

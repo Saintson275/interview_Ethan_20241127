@@ -91,7 +91,7 @@ The project structure is organized as follows:
 
 ## Players management endpoint
 
-1. /Players:
+### 1./Players:
 -**Get all players RequestUrl:http://localhost:8080/api/players**:
    ```json
    *response:

@@ -83,26 +83,26 @@ Integrated with GORM as the Object-Relational Mapper (ORM) for seamless interact
 
 3. Payment Functionality
 Implements support for multiple payment methods with simulated logic, including:
-    - Credit Card Payments
- - Validation for card number, expiry date, and CVV, with simulated transaction failure.
- - Bank Transfers
- - Validation for account and bank details, supporting simulated transaction failure.
- - Third-Party Payment Platforms
- - Extensible to integrate third-party payment APIs with mock transaction logic.
- - Blockchain Payments
- - Verification of wallet addresses with low-probability failure simulation.
+   - **Credit Card Payments**
+    - Validation for card number, expiry date, and CVV, with simulated transaction failure.
+   - **Bank Transfers**
+    - Validation for account and bank details, supporting simulated transaction failure.
+   - **Third-Party Payment Platforms**
+    - Extensible to integrate third-party payment APIs with mock transaction logic.
+   - **Blockchain Payments**
+    - Verification of wallet addresses with low-probability failure simulation.
 
 4. Modular Design and Routing
 A modular architecture utilising Fiber’s routing system, divided into distinct modules (e.g., Players, Levels, Rooms, Payments), ensuring maintainability and ease of expansion.
 
 5. Data Modelling and Migrations
 Supports automated database table generation and model migration using GORM, covering key entities such as:
- - Player Management
- - Level Management
- - Room Management
- - Reservation Management
- - Challenge Management
- - Payment Management
+    - Player Management
+    - Level Management
+    - Room Management
+    - Reservation Management
+    - Challenge Management
+    - Payment Management
 
 6. Unit and Integration Testing
 Unit Tests
@@ -112,13 +112,13 @@ End-to-end tests for the payment API, verifying request handling, database inter
 
 7. Dockerised Deployment
 Provides Docker and Docker Compose support for streamlined local development and production deployment, including:
- - Configuration of a PostgreSQL database container.
- - Automated service orchestration.
+    - Configuration of a PostgreSQL database container.
+    - Automated service orchestration.
 
 8. Error Handling and Logging
- - Global Error Middleware
- - Handles application-wide errors, returning user-friendly JSON responses.
- - Logging all requests and database operations to facilitate debugging and monitoring.
+    - Global Error Middleware
+    - Handles application-wide errors, returning user-friendly JSON responses.
+    - Logging all requests and database operations to facilitate debugging and monitoring.
 
 9. Environment Variable Management
 Employs dotenv for environment variable handling, enabling secure and centralised management of configuration details, including database credentials and server settings.

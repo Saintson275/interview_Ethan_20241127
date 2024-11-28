@@ -1,16 +1,10 @@
-# React Redux Toolkit Blog App
-
-This is a [front-end assessment at Risidio](https://github.com/Risidio/frontend_api_assement/tree/main). The assessment rquires to Fetch a list of posts from the given API endpoint and display them in a table
-or a list and provide a form that allows adding a new post to the list. Each post item should display this information:
-- userId
-- title
-- completed
-
-However, the data fetched from the provided API endpoint([posts](https://jsonplaceholder.typicode.com/posts)) does not have a "completed" field, while another API endpoint([todos](https://jsonplaceholder.typicode.com/todos)) on JSONPlaceholder does. Since this assessment is intended to build a posts web application, I believe this should be an error in the instructions.
-
-This project is a simple blog application built using React, Redux Toolkit, and React Router. It allows users to view a list of posts, add new posts, and navigate between different sections of the application.
-
-![Project Logo](public/demo.png)
+# Go postgresql Restful APIs for OXO
+This project is a backend management system for the OXO series of games built with the Go+fiber+Postgresql framework. It includes 5 modules:
+- Players Managment Module
+- Game Room Management Module
+- Endless Challenge Module
+- Game Log Module
+- Payment Processing Module
 
 ## Table of Contents
 
@@ -29,21 +23,22 @@ To run this project locally, follow these steps:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/Saintson275/Simple_Post_Web.git
-   cd Simple_Post_Web
+   git clone https://github.com/Saintson275/interview_Ethan_20241127.git
    
-2. **Install dependencies:**:
+2. **Start the development server with docker::**:
 
    ```bash
-   npm install
+   docker-compose up -d
    
-3. **Start the development server::**:
+3. **Start the development server with Terminal::**:
 
    ```bash
-   npm run dev
+   go run main.go
+   
+
    
 ## Usage
-- Home Page: Navigate to the home page (/) to view a list of posts.
+- Start the Docker service and use [Postman](https://www.postman.com) to test the API of each module.
 - Create Post: Navigate to /create-post and fill out the form to add a new post with a title and content.
 
 ## Folder Structure
@@ -51,14 +46,31 @@ The project structure is organized as follows:
        .
 
 
-    ├── public/                 # Public assets and index.html
-    ├── src/                    # Source code
-    │   ├── components/         # React components
-    │   ├── services/           # API services and Redux setup
-    │   ├── ui/                 # Reusable UI components (e.g., buttons, cards)
-    │   ├── App.tsx             # Main application component with routing
-    │   └── index.tsx           # Entry point, renders the App component
-    ├── package.json            # Dependencies and scripts
+    ├── handler/                # Contains business logic and route handlers
+    │   ├── players.go          # Handlers for player-related operations
+    │   ├── levels.go           # Handlers for level-related operations
+    │   ├── rooms.go            # Handlers for room-related operations
+    │   ├── reservations.go     # Handlers for reservation-related operations
+    │   ├── challenge.go        # Handlers for game challenge operations
+    │   ├── gameLog.go          # Handlers for game log operations
+    │   ├── payments.go         # Handlers for payment-related operations
+    │   └── routes.go           # Centralized route registration
+    ├── models/                 # Defines the data structures and database models
+    │   ├── players.go          # Player model definition
+    │   ├── levels.go           # level model definition
+    │   ├── rooms.go            # Room model definition
+    │   ├── reservations.go     # Reservation model definition
+    │   ├── challenge.go        # Challenge model definition
+    │   ├── gameLog.go          # Game log model definition
+    │   └── payments.go         # Payment model definition
+    ├── storage/                # Contains database connection and storage logic
+    │   └── postgre.go          # PostgreSQL database connection configuration
+    ├── tests/                  # Contains unit and integration tests
+    │   ├── payment_integration_test.go                  # Integration tests for payment-related APIs
+    │   └── payment_test.go     # Unit tests for payment-related logic
+    ├── Dockerfile              # Docker configuration for building the application container
+    ├── docker-compose.yml      # Docker Compose configuration for multi-container setups
+    ├── main.go                 # Main application entry point
     └── README.md               # Project README file
 
 ## Features
@@ -70,19 +82,43 @@ The project structure is organized as follows:
 - Dialogs and Modals: Utilizes Shadcn Alert Dialog for displaying modal dialogs for success/error messages.
 
 ## Technologies Used
-- [React](https://reactjs.org)
-- [Redux Toolkit](https://redux-toolkit.js.org)
-- [React Router](https://reactrouter.com)
-- [Axios](https://axios-http.com)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Shadcn UI](https://ui.shadcn.com)
-- [jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com) (Mock API for testing)
+- [Go](https://go.dev)
+- [Fiber](https://gofiber.io)
+- [Postgres](https://www.postgresql.org)
+- [Docker](https://www.docker.com)
+- [Postman](https://www.postman.com)
+- [Vercel](https://vercel.com) (Hosting database)
 
 ## Approach Taken
-1. Project Setup and Initialization:
+1. Player management:
 
-   - Clone Repository: Started by cloning the provided repository (https://github.com/Risidio/frontend_api_assement.git).
-   - Initial Setup: Configured the project with TypeScript and installed necessary dependencies like Axios and Redux Toolkit.
+   - Get: List all players and return a list in JSON format, including each player's ID, name, level and other information:
+   *requestUrl:
+   http://localhost:8080/api/players
+
+   *response:
+   {
+    id,
+    name,
+    level
+   }
+
+   - Post: Register a new player and receive a request in JSON format, including the player's name and level. Returns the new player's ID:
+   *requestUrl:
+   http://localhost:8080/api/players
+
+   *requestBody:
+   {
+    name,
+    level
+   }
+
+   *response:
+   {
+    id,
+    name,
+    level
+   }
 
 2. API Integration:
    - Axios Configuration: Utilized Axios as the HTTP client for making requests to the public API (https://jsonplaceholder.typicode.com).

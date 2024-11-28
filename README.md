@@ -91,7 +91,7 @@ The project structure is organized as follows:
 
 ## Players management endpoint
 
-1.**Get all players RequestUrl:http://localhost:8080/api/players**:
+1. **[Get]Fetch all players(RequestUrl:http://localhost:8080/api/players)**:
    ```json
    *response:
    [
@@ -102,8 +102,7 @@ The project structure is organized as follows:
      }
    ]
 
-2.**Post: Register a new player and receive a request in JSON format, including the player's name and level. Returns the new player's ID**:
-   RequestUrl:http://localhost:8080/api/players
+2. **[Post]Create a player(RequestUrl:http://localhost:8080/api/players)**:
    ```json
    *requestBody:
    {

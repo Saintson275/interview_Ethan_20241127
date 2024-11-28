@@ -93,9 +93,10 @@ The project structure is organized as follows:
 1. Player management:
 
    - Get: List all players and return a list in JSON format, including each player's ID, name, level and other information:
-   *requestUrl:
+   ```bash
+   RequestUrl
    http://localhost:8080/api/players
-
+   ```json
    *response:
    {
     id,
@@ -104,10 +105,8 @@ The project structure is organized as follows:
    }
 
    - Post: Register a new player and receive a request in JSON format, including the player's name and level. Returns the new player's ID:
-   *requestUrl:
+   RequestUrl:
    http://localhost:8080/api/players
-
-   *API Examples:
    ```json
    *requestBody:
    {
